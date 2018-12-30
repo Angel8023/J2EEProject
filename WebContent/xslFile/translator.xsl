@@ -14,35 +14,40 @@
 				<!-- 配置form的各个属性 -->
 					<xsl:attribute name="name">  
         				<xsl:value-of select="view/body/form/name"></xsl:value-of>  
-        			</xsl:attribute>
-        			
+        			</xsl:attribute>        			
 					<xsl:attribute name="action">
         				<xsl:value-of select="view/body/form/action"></xsl:value-of>  
-        			</xsl:attribute>
-        			
+        			</xsl:attribute>        			
 					<xsl:attribute name="method">
         				<xsl:value-of select="view/body/form/method"></xsl:value-of>  
         			</xsl:attribute>        			
         			<br></br>	     
-        			<!-- 读取textView文本内容 -->   			
-        			<xsl:for-each select="view/body/form/textView">
-        				<xsl:value-of select="name"></xsl:value-of>
-        				<xsl:value-of select="lable"></xsl:value-of> 						
-        				<xsl:value-of select="value"></xsl:value-of>  
-						<br/>						
+        			<!-- 读取textView文本内容 --> 
+        			        				
+        			<xsl:for-each select="view/body/form/textView">         			     	
+        				<xsl:value-of select="name"></xsl:value-of>        			
+        			<xsl:attribute name="label"> 
+        				<xsl:value-of select="lable"></xsl:value-of> 
+        			</xsl:attribute> 
+        			<input> 
+        			<xsl:attribute name="value">       				 					
+        				<xsl:value-of select="value"></xsl:value-of>
+        			</xsl:attribute>  
+        			</input>         				
+						<br/>											
    					</xsl:for-each>
-   					<br/>    			        		
-					
+   						
+   					<br/>    			        							
 					<!-- 配置button -->
 					<xsl:for-each select="view/body/form/buttonView">	
-						<input type = "button">					
+						<input type="button">					
 							<xsl:attribute name="name">  
         						<xsl:value-of select="name"></xsl:value-of> 
-        					</xsl:attribute>
+        					</xsl:attribute>        				
 							<xsl:attribute name="label">  
         						<xsl:value-of select="label"></xsl:value-of>   
         					</xsl:attribute>	        					
-        				</input>					
+        				</input>				
 					</xsl:for-each>
 				</form>
 			</body>

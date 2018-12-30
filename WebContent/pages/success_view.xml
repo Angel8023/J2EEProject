@@ -13,14 +13,12 @@
 			<name>userName</name>
 			<label>Login Name:</label>
 			<value>Water</value>
-		</textView>
-		
+		</textView>		
 		<textView>
 			<name>userAge</name>
 			<label>Age</label>
 			<value>30</value>
-		</textView>
-		
+		</textView>		
 		<buttonView>
 			<name>logoutButton</name>
 			<label>Logout</label>
