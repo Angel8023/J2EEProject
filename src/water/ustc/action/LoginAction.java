@@ -3,9 +3,9 @@ package water.ustc.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.ws.db.glassfish.BridgeWrapper;
-
 import bean.UserBean;
+import service.UserInterface;
+import service.UserService;
 
 public class LoginAction {
 	private UserBean userBean;
@@ -20,12 +20,12 @@ public class LoginAction {
 
 	public String handleLogin(HttpServletRequest request, HttpServletResponse reponse) {
 		String name = request.getParameter("userName");
-		String pwd = request.getParameter("userPassword");
-		System.out.println("账号和密码："+name + pwd);
+		String pwd = request.getParameter("userPassword");		
 		userBean = new UserBean();
-		userBean.setUserName(name);
-		userBean.setUserPass(pwd);		
-		boolean isSuccess = userBean.signIn();
+		userBean.setUserId(name);   //把输入的name当作id来进行查询
+		userBean.setUserPass(pwd);	
+		UserInterface user = new UserService(userBean);
+		boolean isSuccess = user.signIn();
 		if (isSuccess) {
 			return "success";
 		} else	return "failure";

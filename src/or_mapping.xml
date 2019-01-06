@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OR-Mappings>
+	<jdbc>
+		<property>
+			<name>driver_class</name>
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<proterty>
+			<name>url_path</name>
+			<value>jdbc:mysql://localhost:3306/j2eedbs?useUnicode=true&amp;characterEncoding=UTF-8</value>
+		</proterty>
+		<property>
+			<name>db_userName</name>
+			<value>root</value>
+		</property>
+		<property>
+			<name>db_userPassword</name>
+			<value></value>
+		</property>
+	</jdbc>
+
+	<class>
+		<name>UserBean</name>
+		<table>Users</table>
+		<id>
+			<name>userId</name>
+		</id>
+		<property>
+			<name>userName</name>
+			<column>userName</column>
+			<type>String</type>
+			<lazy>false</lazy>
+		</property>
+
+		<property>
+			<name>userPass</name>
+			<column>userPass</column>
+			<type>String</type>
+			<lazy>true</lazy>
+		</property>
+		<!-- other properties -->
+	</class>
+	<!-- other classes -->
+</OR-Mappings>
